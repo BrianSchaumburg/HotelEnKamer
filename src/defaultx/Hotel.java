@@ -3,6 +3,7 @@ package defaultx;
 import defaultx.Room;
 
 import java.util.*;
+import java.util.stream.*;
 
 public class Hotel {
 private ArrayList<Room> rooms = new ArrayList<>() ;
@@ -50,7 +51,7 @@ private String naam;
     public double gemiddeldePrijsPerNachtPerType(Room.soort type)
     {   if(type == null )
             throw new IllegalArgumentException("Het type is leeg ");
-        List<Room> lijst = rooms.stream().filter(c -> c.getType() == type).toList();
+        List<Room> lijst = rooms.stream().filter(c -> c.getType() == type).collect(Collectors.toList());
         if(lijst.size() == 0)
             throw new IllegalArgumentException("dit type bestaat niet ");
         double prijs=0;
@@ -62,7 +63,7 @@ private String naam;
     }
     public int aantal2persoonsKamer()
     {
-        List<Room> tweepersoonskamers = rooms.stream().filter(c ->c.getisDoubleRoom() == true).toList();
+        List<Room> tweepersoonskamers = rooms.stream().filter(c ->c.getisDoubleRoom() == true).collect(Collectors.toList());
         return tweepersoonskamers.size();
     }
     public int aantalBezet()
