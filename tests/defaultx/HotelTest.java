@@ -11,6 +11,7 @@ Room room ;
 Kamer kamer ;
 Ruimte ruimte;
     @Before
+    //todo dit is een test aanpassing
     public void setUp() throws Exception {
         hotel = new Hotel("Prive", 200);
         room =new Room("ccc", Room.soort.klassiekeKamer, 300, false);
